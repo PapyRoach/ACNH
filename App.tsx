@@ -1,8 +1,8 @@
 import React from 'react';
 import {View} from 'react-native';
 
-function App(): JSX.Element {
+const App = () => {
   return <View></View>;
-}
+};
 
 export default App;
