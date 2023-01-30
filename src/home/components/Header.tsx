@@ -1,14 +1,22 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import React from 'react';
 
 const HEADER_HEIGHT = 60;
 const HEADER_BOTTOM_MARGIN = 20;
 const HEADER_FONT_SIZE = 30;
 
-export const Header = (headerText: string) => {
+export const Header = ({
+  headerText,
+  headerImagePath,
+}: {
+  headerText: string;
+  headerImagePath: any;
+}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{headerText}</Text>
+      <ImageBackground source={headerImagePath}>
+        <Text style={styles.text}>{headerText}</Text>
+      </ImageBackground>
     </View>
   );
 };
