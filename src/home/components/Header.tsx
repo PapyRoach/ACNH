@@ -14,7 +14,7 @@ export const Header = ({
 }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={headerImagePath}>
+      <ImageBackground style={styles.background} source={headerImagePath}>
         <Text style={styles.text}>{headerText}</Text>
       </ImageBackground>
     </View>
@@ -26,11 +26,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: HEADER_HEIGHT,
     marginBottom: HEADER_BOTTOM_MARGIN,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   text: {
     fontSize: HEADER_FONT_SIZE,
     fontWeight: 'bold',
+  },
+  background: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
