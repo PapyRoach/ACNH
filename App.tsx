@@ -1,8 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
+import {HomeScreen} from './src/home/HomeScreen';
 
 const App = () => {
-  return <View></View>;
+  return <HomeScreen />;
 };
 
 export default App;
