@@ -1,11 +1,13 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH = 120;
 
 export const HomeButton = () => {
-  return <View style={styles.container}></View>;
+  <View style={styles.container}>
+    <TouchableOpacity></TouchableOpacity>
+  </View>;
 };
 
 const styles = StyleSheet.create({
