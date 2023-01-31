@@ -1,15 +1,21 @@
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH = 120;
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
-export const HomeButton = (clickHandler: Function) => {
+export const HomeButton = ({
+  clickHandler,
+  imgPath,
+}: {
+  clickHandler: Function;
+  imgPath: any;
+}) => {
   <View style={styles.container}>
-    <TouchableOpacity
-      style={styles.touchable}
-      onPress={() => clickHandler}></TouchableOpacity>
+    <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
+      <Image source={imgPath}></Image>
+    </TouchableOpacity>
   </View>;
 };
 
