@@ -14,12 +14,14 @@ export const HomeButton = ({
   imgPath: any;
   label: string;
 }) => {
-  <View style={styles.container}>
-    <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
-      <Image style={styles.image} source={imgPath}></Image>
-    </TouchableOpacity>
-    <Text style={styles.label}>{label}</Text>
-  </View>;
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
+        <Image style={styles.image} source={imgPath}></Image>
+      </TouchableOpacity>
+      <Text style={styles.label}>{label}</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
