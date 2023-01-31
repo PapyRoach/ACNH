@@ -1,4 +1,4 @@
-import {StyleSheet, View, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Image, Text} from 'react-native';
 import React from 'react';
 
 const BUTTON_TOTAL_HEIGHT = 160;
@@ -8,14 +8,17 @@ const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 export const HomeButton = ({
   clickHandler,
   imgPath,
+  label,
 }: {
   clickHandler: Function;
   imgPath: any;
+  label: string;
 }) => {
   <View style={styles.container}>
     <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
       <Image style={styles.image} source={imgPath}></Image>
     </TouchableOpacity>
+    <Text>{label}</Text>
   </View>;
 };
 
