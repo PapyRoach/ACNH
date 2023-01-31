@@ -5,9 +5,11 @@ const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH = 120;
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
-export const HomeButton = () => {
+export const HomeButton = (clickHandler: Function) => {
   <View style={styles.container}>
-    <TouchableOpacity style={styles.touchable}></TouchableOpacity>
+    <TouchableOpacity
+      style={styles.touchable}
+      onPress={() => clickHandler}></TouchableOpacity>
   </View>;
 };
 
