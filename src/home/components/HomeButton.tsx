@@ -14,7 +14,7 @@ export const HomeButton = ({
 }) => {
   <View style={styles.container}>
     <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
-      <Image source={imgPath}></Image>
+      <Image style={styles.image} source={imgPath}></Image>
     </TouchableOpacity>
   </View>;
 };
@@ -28,5 +28,9 @@ const styles = StyleSheet.create({
   touchable: {
     height: BUTTON_ICON_HEIGHT_AND_WIDTH,
     width: BUTTON_ICON_HEIGHT_AND_WIDTH,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
 });
