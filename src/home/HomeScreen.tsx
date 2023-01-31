@@ -12,9 +12,9 @@ export const HomeScreen = () => {
       />
       <HomeButton
         label="Appuis : "
-        clickHandler={() => {
-          console.log('Appui !');
-        }}
+        // clickHandler={() => {
+        //   console.log('Appui !');
+        // }}
         imgPath={require('./src/home/components/img/tracker.png')}></HomeButton>
     </View>
   );

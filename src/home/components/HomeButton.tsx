@@ -6,11 +6,11 @@ const BUTTON_TOTAL_WIDTH = 120;
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
 export const HomeButton = ({
-  clickHandler,
+  // clickHandler,
   imgPath,
   label,
 }: {
-  clickHandler: any;
+  // clickHandler: any;
   imgPath: any;
   label: string;
 }) => {
