@@ -1,5 +1,5 @@
 import {StyleSheet, View, TouchableOpacity, Image, Text} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH = 120;
@@ -14,12 +14,19 @@ export const HomeButton = ({
   imgPath: any;
   label: string;
 }) => {
+  const [count, setCount] = useState(0);
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.touchable} onPress={clickHandler}>
+      <TouchableOpacity
+        style={styles.touchable}
+        onPress={() => setCount(count + 1)}>
         <Image style={styles.image} source={imgPath}></Image>
       </TouchableOpacity>
-      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.label}>
+        {label}
+        {count}
+      </Text>
     </View>
   );
 };

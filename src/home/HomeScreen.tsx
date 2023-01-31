@@ -11,7 +11,7 @@ export const HomeScreen = () => {
         headerText="Companion"
       />
       <HomeButton
-        label="Tracker"
+        label="Appuis : "
         clickHandler={() => {
           console.log('Appui !');
         }}
