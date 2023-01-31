@@ -18,7 +18,7 @@ export const HomeButton = ({
     <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
       <Image style={styles.image} source={imgPath}></Image>
     </TouchableOpacity>
-    <Text>{label}</Text>
+    <Text style={styles.label}>{label}</Text>
   </View>;
 };
 
@@ -35,5 +35,8 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
+  },
+  label: {
+    textAlign: 'center',
   },
 });
