@@ -10,13 +10,13 @@ export const HomeButton = ({
   imgPath,
   label,
 }: {
-  clickHandler: Function;
+  clickHandler: any;
   imgPath: any;
   label: string;
 }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.touchable} onPress={() => clickHandler}>
+      <TouchableOpacity style={styles.touchable} onPress={clickHandler}>
         <Image style={styles.image} source={imgPath}></Image>
       </TouchableOpacity>
       <Text style={styles.label}>{label}</Text>
