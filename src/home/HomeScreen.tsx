@@ -16,6 +16,18 @@ export const HomeScreen = () => {
         //   console.log('Appui !');
         // }}
         imgPath={require('./src/home/components/img/tracker.png')}></HomeButton>
+      <HomeButton
+        label="Appuis : "
+        // clickHandler={() => {
+        //   console.log('Appui !');
+        // }}
+        imgPath={require('./src/home/components/img/my_village.png')}></HomeButton>
+      <HomeButton
+        label="Appuis : "
+        // clickHandler={() => {
+        //   console.log('Appui !');
+        // }}
+        imgPath={require('./src/home/components/img/encyclo_betes.png')}></HomeButton>
     </View>
   );
 };
