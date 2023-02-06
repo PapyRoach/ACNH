@@ -1,6 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import {Header} from './components/Header';
+import {HomeButton} from './components/HomeButton';
 
 export const HomeScreen = () => {
   return (
@@ -9,6 +10,24 @@ export const HomeScreen = () => {
         headerImagePath={require('./components/img/headerBackground.jpg')}
         headerText="Companion"
       />
+      <HomeButton
+        label="Appuis : "
+        // clickHandler={() => {
+        //   console.log('Appui !');
+        // }}
+        imgPath={require('./src/home/components/img/tracker.png')}></HomeButton>
+      <HomeButton
+        label="Appuis : "
+        // clickHandler={() => {
+        //   console.log('Appui !');
+        // }}
+        imgPath={require('./src/home/components/img/my_village.png')}></HomeButton>
+      <HomeButton
+        label="Appuis : "
+        // clickHandler={() => {
+        //   console.log('Appui !');
+        // }}
+        imgPath={require('./src/home/components/img/encyclo_betes.png')}></HomeButton>
     </View>
   );
 };
