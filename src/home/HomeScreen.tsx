@@ -15,19 +15,19 @@ export const HomeScreen = () => {
         // clickHandler={() => {
         //   console.log('Appui !');
         // }}
-        imgPath={require('./src/home/components/img/tracker.png')}></HomeButton>
+        imgPath={require('./components/img/tracker.png')}></HomeButton>
       <HomeButton
         label="Appuis : "
         // clickHandler={() => {
         //   console.log('Appui !');
         // }}
-        imgPath={require('./src/home/components/img/my_village.png')}></HomeButton>
+        imgPath={require('./components/img/my_village.png')}></HomeButton>
       <HomeButton
         label="Appuis : "
         // clickHandler={() => {
         //   console.log('Appui !');
         // }}
-        imgPath={require('./src/home/components/img/encyclo_betes.png')}></HomeButton>
+        imgPath={require('./components/img/encyclo_betes.png')}></HomeButton>
     </View>
   );
 };
