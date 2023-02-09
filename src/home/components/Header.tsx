@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import React from 'react';
 
 const HEADER_HEIGHT = 60;
-const HEADER_BOTTOM_MARGIN = 20;
+const HEADER_BOTTOM_MARGIN = 40;
 const HEADER_FONT_SIZE = 30;
 
 export const Header = ({
