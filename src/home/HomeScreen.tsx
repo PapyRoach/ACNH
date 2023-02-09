@@ -1,10 +1,12 @@
-import {View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList} from 'react-native';
 import React from 'react';
 import {Header} from './components/Header';
 import {HomeButton} from './components/HomeButton';
 import {HOME_SCREEN_BUTTONS_DATASET} from './components/HomeButtonsData';
 
 export const NUMBER_OF_COLUMNS = 3;
+export const MAX_GRID_WIDTH = 500;
+export const GRID_WIDTH_RATIO = 0.9;
 
 export const HomeScreen = () => {
   return (
@@ -29,3 +31,11 @@ export const HomeScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  listWrapper: {
+    alignSelf: 'center',
+    width: `${GRID_WIDTH_RATIO * 100}%`,
+    maxWidth: MAX_GRID_WIDTH,
+  },
+});

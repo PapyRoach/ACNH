@@ -1,8 +1,25 @@
-import {StyleSheet, View, TouchableOpacity, Image, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+  Text,
+  Dimensions,
+} from 'react-native';
 import React, {useState} from 'react';
+import {
+  MAX_GRID_WIDTH,
+  GRID_WIDTH_RATIO,
+  NUMBER_OF_COLUMNS,
+} from '../HomeScreen';
 
 const BUTTON_TOTAL_HEIGHT = 160;
-const BUTTON_TOTAL_WIDTH = 120;
+
+const BUTTON_TOTAL_WIDTH =
+  Dimensions.get('window').width > MAX_GRID_WIDTH
+    ? (MAX_GRID_WIDTH * GRID_WIDTH_RATIO) / NUMBER_OF_COLUMNS
+    : (GRID_WIDTH_RATIO * Dimensions.get('window').width) / NUMBER_OF_COLUMNS;
+
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
 export const HomeButton = ({
