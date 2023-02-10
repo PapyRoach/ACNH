@@ -5,13 +5,12 @@ const HEADER_HEIGHT = 60;
 const HEADER_BOTTOM_MARGIN = 40;
 const HEADER_FONT_SIZE = 30;
 
-export const Header = ({
-  headerText,
-  headerImagePath,
-}: {
+interface HeaderProps {
   headerText: string;
   headerImagePath: any;
-}) => {
+}
+
+export const Header = ({headerText, headerImagePath}: HeaderProps) => {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.background} source={headerImagePath}>

@@ -22,15 +22,17 @@ const BUTTON_TOTAL_WIDTH =
 
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
+interface ButtonProps {
+  // clickHandler: any;
+  imgPath: any;
+  label: string;
+}
+
 export const HomeButton = ({
   // clickHandler,
   imgPath,
   label,
-}: {
-  // clickHandler: any;
-  imgPath: any;
-  label: string;
-}) => {
+}: ButtonProps) => {
   const [count, setCount] = useState(0);
 
   return (
