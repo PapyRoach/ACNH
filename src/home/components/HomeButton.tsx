@@ -23,7 +23,7 @@ const BUTTON_TOTAL_WIDTH =
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
 interface ButtonProps {
-  // clickHandler: any;
+  // clickHandler: () => void;
   imgPath: any;
   label: string;
 }
