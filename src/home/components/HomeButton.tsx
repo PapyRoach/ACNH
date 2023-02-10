@@ -40,7 +40,7 @@ export const HomeButton = ({
       <TouchableOpacity
         style={styles.touchable}
         onPress={() => setCount(count + 1)}>
-        <Image style={styles.image} source={imgPath}></Image>
+        <Image style={styles.image} source={imgPath} />
       </TouchableOpacity>
       <Text style={styles.label}>
         {label}
