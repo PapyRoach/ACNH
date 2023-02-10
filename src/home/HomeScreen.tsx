@@ -7,13 +7,14 @@ import {HOME_SCREEN_BUTTONS_DATASET} from './components/HomeButtonsData';
 export const NUMBER_OF_COLUMNS = 3;
 export const MAX_GRID_WIDTH = 500;
 export const GRID_WIDTH_RATIO = 0.9;
+const HEADER_HOME_TEXT = 'Companion';
 
 export const HomeScreen = () => {
   return (
     <View>
       <Header
         headerImagePath={require('./components/img/headerBackground.jpg')}
-        headerText="Companion"
+        headerText={HEADER_HOME_TEXT}
       />
       <View style={styles.listWrapper}>
         <FlatList
