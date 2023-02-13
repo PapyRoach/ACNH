@@ -3,7 +3,6 @@ import {
   View,
   TouchableOpacity,
   Image,
-  Text,
   Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
@@ -12,6 +11,7 @@ import {
   GRID_WIDTH_RATIO,
   NUMBER_OF_COLUMNS,
 } from '../HomeScreen';
+import Typography from '../../theme/typography/Typography';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH =
@@ -40,10 +40,7 @@ export const HomeButton = ({
         onPress={() => setCount(count + 1)}>
         <Image style={styles.image} source={imgPath} />
       </TouchableOpacity>
-      <Text style={styles.label}>
-        {label}
-        {count}
-      </Text>
+      <Typography variant="iconLabel" text={`${label}${count}`} />
     </View>
   );
 };
@@ -61,8 +58,5 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-  },
-  label: {
-    textAlign: 'center',
   },
 });

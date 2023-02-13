@@ -1,9 +1,9 @@
 import {StyleSheet, Text, View, ImageBackground} from 'react-native';
 import React from 'react';
+import Typography from '../../theme/typography/Typography';
 
 const HEADER_HEIGHT = 60;
 const HEADER_BOTTOM_MARGIN = 40;
-const HEADER_FONT_SIZE = 30;
 
 interface HeaderProps {
   headerText: string;
@@ -14,7 +14,7 @@ export const Header = ({headerText, headerImagePath}: HeaderProps) => {
   return (
     <View style={styles.container}>
       <ImageBackground style={styles.background} source={headerImagePath}>
-        <Text style={styles.text}>{headerText}</Text>
+        <Typography variant="header" text={headerText} />
       </ImageBackground>
     </View>
   );
@@ -25,10 +25,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: HEADER_HEIGHT,
     marginBottom: HEADER_BOTTOM_MARGIN,
-  },
-  text: {
-    fontSize: HEADER_FONT_SIZE,
-    fontWeight: 'bold',
   },
   background: {
     height: '100%',
