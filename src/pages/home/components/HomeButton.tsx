@@ -11,7 +11,7 @@ import {
   GRID_WIDTH_RATIO,
   NUMBER_OF_COLUMNS,
 } from '../HomeScreen';
-import Typography from '../../theme/typography/Typography';
+import Typography from '../../../theme/typography/Typography';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH =
