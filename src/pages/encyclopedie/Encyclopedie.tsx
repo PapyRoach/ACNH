@@ -1,10 +1,14 @@
 import {View} from 'react-native';
 import {Header} from '../header/Header';
 import React from 'react';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import type {RootStackParamList} from '../../navigation/Navigator';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 
-export const Encyclopedie = () => {
+type Props = NativeStackScreenProps<RootStackParamList, 'Encyclopedie'>;
+
+export const Encyclopedie = ({navigation}: Props) => {
   return (
     <View>
       <Header
