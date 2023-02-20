@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import {Header} from '../header/Header';
 import React from 'react';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import type {RootStackParamList} from '../../navigation/Navigator';
+import type {RootStackParamList} from '../../navigation/Types';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 

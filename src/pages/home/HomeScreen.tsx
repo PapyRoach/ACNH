@@ -4,7 +4,7 @@ import {Header} from '../header/Header';
 import {HomeButton} from './components/HomeButton';
 import {HOME_SCREEN_BUTTONS_DATASET} from './components/HomeButtonsData';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import type {RootStackParamList} from '../../navigation/Navigator';
+import type {RootStackParamList} from '../../navigation/Types';
 
 export const NUMBER_OF_COLUMNS = 3;
 export const MAX_GRID_WIDTH = 500;
