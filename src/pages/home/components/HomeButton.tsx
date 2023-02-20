@@ -5,7 +5,7 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {
   MAX_GRID_WIDTH,
   GRID_WIDTH_RATIO,
@@ -21,26 +21,26 @@ const BUTTON_TOTAL_WIDTH =
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
 interface ButtonProps {
-  // clickHandler: () => void;
+  navigationTarget: string;
   imgPath: any;
   label: string;
+  navigation: any;
 }
 
 export const HomeButton = ({
-  // clickHandler,
+  navigationTarget,
   imgPath,
   label,
+  navigation,
 }: ButtonProps) => {
-  const [count, setCount] = useState(0);
-
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.touchable}
-        onPress={() => setCount(count + 1)}>
+        onPress={() => navigation.navigate(navigationTarget)}>
         <Image style={styles.image} source={imgPath} />
       </TouchableOpacity>
-      <Typography variant="iconLabel" text={`${label}${count}`} />
+      <Typography variant="iconLabel" text={label} />
     </View>
   );
 };

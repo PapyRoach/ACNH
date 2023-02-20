@@ -29,6 +29,8 @@ export const HomeScreen = ({navigation}: Props) => {
             <HomeButton
               label={button.item.label}
               imgPath={button.item.imgPath}
+              navigation={navigation}
+              navigationTarget={button.item.navigationTarget}
             />
           )}
         />
