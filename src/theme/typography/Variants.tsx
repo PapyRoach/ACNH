@@ -1,4 +1,4 @@
-export type typosType = 'header' | 'iconLabel';
+export type typosType = 'header' | 'iconLabel' | 'simple-text';
 
 export const typos: Record<typosType, any> = {
   header: {
@@ -7,6 +7,9 @@ export const typos: Record<typosType, any> = {
   },
   iconLabel: {
     textAlign: 'center',
+    fontSize: 14,
+  },
+  'simple-text': {
     fontSize: 14,
   },
 };
