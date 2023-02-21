@@ -5,6 +5,7 @@ import {HomeButton} from './components/HomeButton';
 import {HOME_SCREEN_BUTTONS_DATASET} from './components/HomeButtonsData';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import type {RootStackParamList} from '../../navigation/Types';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const NUMBER_OF_COLUMNS = 3;
 export const MAX_GRID_WIDTH = 500;
@@ -14,8 +15,14 @@ const HEADER_HOME_TEXT = 'Companion';
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export const HomeScreen = ({navigation}: Props) => {
+  const insets = useSafeAreaInsets();
   return (
-    <View>
+    <View
+      style={{
+        paddingTop: insets.top,
+        paddingBottom: insets.bottom,
+        flex: 1,
+      }}>
       <Header
         headerImagePath={require('../header/img/header_background.jpg')}
         headerText={HEADER_HOME_TEXT}
@@ -42,6 +49,7 @@ export const HomeScreen = ({navigation}: Props) => {
 const styles = StyleSheet.create({
   listWrapper: {
     alignSelf: 'center',
+    marginTop: 40,
     width: `${GRID_WIDTH_RATIO * 100}%`,
     maxWidth: MAX_GRID_WIDTH,
   },

@@ -3,7 +3,7 @@ import React from 'react';
 import Typography from '../../theme/typography/Typography';
 
 const HEADER_HEIGHT = 60;
-const HEADER_BOTTOM_MARGIN = 40;
+const HEADER_BOTTOM_MARGIN = 5;
 
 interface HeaderProps {
   headerText: string;
