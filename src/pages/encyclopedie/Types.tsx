@@ -21,3 +21,9 @@ export interface Fish {
   icon_uri: string;
   image_uri: string;
 }
+
+export type Fishes = Record<string, Fish>;
+
+export interface FishViewProps {
+  fishList: Fish[];
+}
