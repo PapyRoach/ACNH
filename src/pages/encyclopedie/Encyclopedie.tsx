@@ -1,17 +1,16 @@
-import {View, ScrollView, Image, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Header} from '../header/Header';
 import React, {useEffect, useState} from 'react';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import type {RootStackParamList} from '../../navigation/Types';
-import type {Fish} from './Types';
-import Typography from '../../theme/typography/Typography';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../navigation/Types';
+import {Fish, Fishes} from './Types';
 import {ActivityIndicator} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {FishListScrollView} from './components/FishListScrollView';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Encyclopedie'>;
-type Fishes = Record<string, Fish>;
 
 export const Encyclopedie = ({navigation}: Props) => {
   const [fishList, setFishList] = useState<Array<Fish>>([]);
@@ -42,34 +41,17 @@ export const Encyclopedie = ({navigation}: Props) => {
           headerImagePath={require('../header/img/header_background.jpg')}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
-        <ScrollView>
-          {fishList.map(fish => (
-            <View style={styles.fishCard}>
-              <View style={styles.fishID}>
-                <Typography
-                  variant="simple-text"
-                  text={'Name : ' + fish.name['name-USen']}
-                />
-                <Typography
-                  variant="simple-text"
-                  text={'Rarity : ' + fish.availability.rarity}
-                />
-                <Typography
-                  variant="simple-text"
-                  text={'Price : ' + fish.price + ' bells'}
-                />
-              </View>
-              <View style={styles.fishImageContainer}>
-                <Image style={styles.fishImage} source={{uri: fish.icon_uri}} />
-              </View>
-            </View>
-          ))}
-        </ScrollView>
+        <FishListScrollView fishList={fishList}></FishListScrollView>
       </View>
     );
   } else {
     return (
-      <View>
+      <View
+        style={{
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+          flex: 1,
+        }}>
         <Header
           headerImagePath={require('../header/img/header_background.jpg')}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
@@ -80,7 +62,7 @@ export const Encyclopedie = ({navigation}: Props) => {
   }
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   fishCard: {
     width: '90%',
     alignSelf: 'center',
