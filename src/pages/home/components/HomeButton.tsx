@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
+  ImageSourcePropType,
 } from 'react-native';
 import React from 'react';
 import {
@@ -20,11 +21,11 @@ const BUTTON_TOTAL_WIDTH =
     : (GRID_WIDTH_RATIO * Dimensions.get('window').width) / NUMBER_OF_COLUMNS;
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
-interface ButtonProps {
+export interface ButtonData {
   navigationTarget: string;
-  imgPath: any;
+  imgPath: ImageSourcePropType;
   label: string;
-  navigation: any;
+  navigation?: any;
 }
 
 export const HomeButton = ({
@@ -32,7 +33,7 @@ export const HomeButton = ({
   imgPath,
   label,
   navigation,
-}: ButtonProps) => {
+}: ButtonData) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
