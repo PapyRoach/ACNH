@@ -14,6 +14,7 @@ const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
 
 export const HomeScreen = () => {
   const insets = useSafeAreaInsets();
+
   return (
     <View
       style={{
