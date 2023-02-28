@@ -11,7 +11,7 @@ import {
   GRID_WIDTH_RATIO,
   NUMBER_OF_COLUMNS,
 } from '../HomeScreen';
-import Typography from '../../../theme/typography/Typography';
+import {IconTypography} from '../../../theme/typography/Typography';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH =
@@ -40,7 +40,7 @@ export const HomeButton = ({
         onPress={() => navigation.navigate(navigationTarget)}>
         <Image style={styles.image} source={imgPath} />
       </TouchableOpacity>
-      <Typography variant="iconLabel" text={label} />
+      <IconTypography text={label} />
     </View>
   );
 };
