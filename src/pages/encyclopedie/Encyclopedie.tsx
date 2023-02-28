@@ -52,7 +52,7 @@ export const Encyclopedie = () => {
           headerImagePath={HEADER_IMAGE_PATH}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
-        <FishListScrollView fishList={fishList}></FishListScrollView>
+        <FishListScrollView fishList={fishList} />
       </View>
     );
   } else {
