@@ -1,6 +1,6 @@
-export type typosType = 'header' | 'iconLabel' | 'simple-text';
+export type TypographyType = 'header' | 'iconLabel' | 'simple-text';
 
-export const typos: Record<typosType, any> = {
+export const typos: Record<TypographyType, any> = {
   header: {
     fontSize: 30,
     fontWeight: 'bold',
