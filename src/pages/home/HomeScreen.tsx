@@ -8,7 +8,9 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 export const NUMBER_OF_COLUMNS = 3;
 export const MAX_GRID_WIDTH = 500;
 export const GRID_WIDTH_RATIO = 0.9;
+
 const HEADER_HOME_TEXT = 'Companion';
+const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
 
 export const HomeScreen = () => {
   const insets = useSafeAreaInsets();
@@ -20,7 +22,7 @@ export const HomeScreen = () => {
         flex: 1,
       }}>
       <Header
-        headerImagePath={require('../header/img/header_background.jpg')}
+        headerImagePath={HEADER_IMAGE_PATH}
         headerText={HEADER_HOME_TEXT}
       />
       <View style={styles.listWrapper}>
