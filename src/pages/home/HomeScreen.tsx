@@ -35,7 +35,7 @@ export const HomeScreen = ({navigation}: Props) => {
           renderItem={button => (
             <HomeButton
               label={button.item.label}
-              imgPath={button.item.imgPath}
+              imagePath={button.item.imagePath}
               navigation={navigation}
               navigationTarget={button.item.navigationTarget}
             />

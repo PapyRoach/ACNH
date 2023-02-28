@@ -23,14 +23,14 @@ const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
 
 export interface ButtonData {
   navigationTarget: string;
-  imgPath: ImageSourcePropType;
+  imagePath: ImageSourcePropType;
   label: string;
   navigation?: any;
 }
 
 export const HomeButton = ({
   navigationTarget,
-  imgPath,
+  imagePath,
   label,
   navigation,
 }: ButtonData) => {
@@ -39,7 +39,7 @@ export const HomeButton = ({
       <TouchableOpacity
         style={styles.touchable}
         onPress={() => navigation.navigate(navigationTarget)}>
-        <Image style={styles.image} source={imgPath} />
+        <Image style={styles.image} source={imagePath} />
       </TouchableOpacity>
       <IconTypography text={label} />
     </View>
