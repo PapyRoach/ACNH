@@ -1,4 +1,4 @@
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Alert} from 'react-native';
 import {Header} from '../header/Header';
 import React, {useEffect, useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -27,7 +27,18 @@ export const Encyclopedie = ({navigation}: Props) => {
         setFishList(Object.values(responseJSON));
         setIsLoaded(true);
       })
-      .catch((error: Error) => console.error('No response : ' + error.message));
+      .catch((error: Error) => {
+        console.error('No response : ' + error.message);
+        Alert.alert('Error', 'Impossible to fetch data. Please try again.', [
+          {
+            text: 'Ok',
+            onPress: () => {
+              navigation.navigate('Home');
+            },
+            style: 'cancel',
+          },
+        ]);
+      });
   }, []);
 
   if (isLoaded) {
