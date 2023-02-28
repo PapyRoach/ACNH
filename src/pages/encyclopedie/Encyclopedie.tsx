@@ -1,21 +1,20 @@
 import {View, StyleSheet, Alert} from 'react-native';
 import {Header} from '../header/Header';
 import React, {useEffect, useState} from 'react';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../../navigation/Types';
 import {Fish, Fishes} from './Types';
 import {ActivityIndicator} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
+import {useNavigation} from '@react-navigation/native';
+import type {NavigationProp} from '../../navigation/Types';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Encyclopedie'>;
-
-export const Encyclopedie = ({navigation}: Props) => {
+export const Encyclopedie = () => {
   const [fishList, setFishList] = useState<Array<Fish>>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const navigation = useNavigation<NavigationProp>();
   const insets = useSafeAreaInsets();
 
   useEffect(() => {

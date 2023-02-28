@@ -3,8 +3,6 @@ import React from 'react';
 import {Header} from '../header/Header';
 import {HomeButton} from './components/HomeButton';
 import {HOME_SCREEN_BUTTONS_DATASET} from './components/HomeButtonsData';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import type {RootStackParamList} from '../../navigation/Types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const NUMBER_OF_COLUMNS = 3;
@@ -12,9 +10,7 @@ export const MAX_GRID_WIDTH = 500;
 export const GRID_WIDTH_RATIO = 0.9;
 const HEADER_HOME_TEXT = 'Companion';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
-
-export const HomeScreen = ({navigation}: Props) => {
+export const HomeScreen = () => {
   const insets = useSafeAreaInsets();
   return (
     <View
@@ -36,7 +32,6 @@ export const HomeScreen = ({navigation}: Props) => {
             <HomeButton
               label={button.item.label}
               imagePath={button.item.imagePath}
-              navigation={navigation}
               navigationTarget={button.item.navigationTarget}
             />
           )}

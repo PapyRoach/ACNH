@@ -13,6 +13,8 @@ import {
   NUMBER_OF_COLUMNS,
 } from '../HomeScreen';
 import {IconTypography} from '../../../theme/typography/Typography';
+import {useNavigation} from '@react-navigation/native';
+import type {NavigationProp} from '../../../navigation/Types';
 
 const BUTTON_TOTAL_HEIGHT = 160;
 const BUTTON_TOTAL_WIDTH =
@@ -20,20 +22,19 @@ const BUTTON_TOTAL_WIDTH =
     ? (MAX_GRID_WIDTH * GRID_WIDTH_RATIO) / NUMBER_OF_COLUMNS
     : (GRID_WIDTH_RATIO * Dimensions.get('window').width) / NUMBER_OF_COLUMNS;
 const BUTTON_ICON_HEIGHT_AND_WIDTH = 100;
-
 export interface ButtonData {
-  navigationTarget: string;
+  navigationTarget: any;
   imagePath: ImageSourcePropType;
   label: string;
-  navigation?: any;
 }
 
 export const HomeButton = ({
   navigationTarget,
   imagePath,
   label,
-  navigation,
 }: ButtonData) => {
+  const navigation = useNavigation<NavigationProp>();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
