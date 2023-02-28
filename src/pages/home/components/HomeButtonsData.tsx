@@ -1,4 +1,6 @@
-export const HOME_SCREEN_BUTTONS_DATASET = [
+import {ButtonData} from './HomeButton';
+
+export const HOME_SCREEN_BUTTONS_DATASET: ButtonData[] = [
   {
     label: 'Encyclopédie',
     imgPath: require('../img/encyclo_betes.png'),

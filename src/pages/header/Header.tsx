@@ -1,4 +1,9 @@
-import {StyleSheet, View, ImageBackground} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  ImageSourcePropType,
+} from 'react-native';
 import React from 'react';
 import {HeaderTypography} from '../../theme/typography/Typography';
 
@@ -7,7 +12,7 @@ const HEADER_BOTTOM_MARGIN = 5;
 
 interface HeaderProps {
   headerText: string;
-  headerImagePath: any;
+  headerImagePath: ImageSourcePropType;
 }
 
 export const Header = ({headerText, headerImagePath}: HeaderProps) => {

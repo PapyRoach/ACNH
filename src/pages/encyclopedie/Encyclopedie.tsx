@@ -9,6 +9,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
+const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Encyclopedie'>;
 
@@ -38,7 +39,7 @@ export const Encyclopedie = ({navigation}: Props) => {
           flex: 1,
         }}>
         <Header
-          headerImagePath={require('../header/img/header_background.jpg')}
+          headerImagePath={HEADER_IMAGE_PATH}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
         <FishListScrollView fishList={fishList}></FishListScrollView>
@@ -53,7 +54,7 @@ export const Encyclopedie = ({navigation}: Props) => {
           flex: 1,
         }}>
         <Header
-          headerImagePath={require('../header/img/header_background.jpg')}
+          headerImagePath={HEADER_IMAGE_PATH}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
         <ActivityIndicator />
