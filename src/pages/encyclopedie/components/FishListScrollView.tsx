@@ -1,6 +1,6 @@
 import {View, ScrollView, Image} from 'react-native';
 import React from 'react';
-import {FishViewProps} from '../Types';
+import type {FishViewProps} from '../Types';
 import {SimpleTypography} from '../../../theme/typography/Typography';
 import {styles} from '../Encyclopedie';
 

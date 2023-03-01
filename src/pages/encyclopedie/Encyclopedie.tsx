@@ -1,8 +1,7 @@
-import {View, StyleSheet, Alert} from 'react-native';
+import {View, StyleSheet, Alert, ActivityIndicator} from 'react-native';
 import {Header} from '../header/Header';
 import React, {useEffect, useState} from 'react';
-import {Fish, Fishes} from './Types';
-import {ActivityIndicator} from 'react-native';
+import type {Fish, Fishes} from './Types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
 import {useNavigation} from '@react-navigation/native';
