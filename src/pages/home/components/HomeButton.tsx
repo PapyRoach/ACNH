@@ -28,7 +28,7 @@ export const HomeButton = ({
   imagePath,
   label,
 }: ButtonData) => {
-  const navigation = useNavigation<NavigationProp>();
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
