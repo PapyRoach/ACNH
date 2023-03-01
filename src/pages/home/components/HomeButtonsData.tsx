@@ -1,4 +1,10 @@
-import {ButtonData} from './HomeButton';
+import {ImageSourcePropType} from 'react-native';
+
+export interface ButtonData {
+  navigationTarget: 'Home' | 'Encyclopedie';
+  imagePath: ImageSourcePropType;
+  label: string;
+}
 
 export const HOME_SCREEN_BUTTONS_DATASET: ButtonData[] = [
   {
