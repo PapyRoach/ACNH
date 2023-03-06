@@ -1,32 +1,32 @@
 import {View, ScrollView, Image} from 'react-native';
 import React from 'react';
-import type {Fish} from '../Types';
+import type {Bug} from '../Types';
 import {SimpleTypography} from '../../../theme/typography/Typography';
 import {styles, TabStackParamList} from '../Encyclopedie';
 import {RouteProp} from '@react-navigation/native';
 
-type FishListRouteProp = RouteProp<TabStackParamList, 'Fish'>;
+type BugListRouteProp = RouteProp<TabStackParamList, 'Bug'>;
 
-type FishProps = {
-  route: FishListRouteProp;
+type BugProps = {
+  route: BugListRouteProp;
 };
 
-export function FishListScrollView({route}: FishProps) {
-  const fishList: Fish[] = route.params.fishList;
+export function BugListScrollView({route}: BugProps) {
+  const bugList: Bug[] = route.params.bugList;
   return (
     <ScrollView>
-      {fishList.map(fish => (
+      {bugList.map(bug => (
         <View style={styles.animalCard}>
           <View style={styles.animalID}>
-            <SimpleTypography text={'Name : ' + fish.name['name-USen']} />
-            <SimpleTypography text={'Rarity : ' + fish.availability.rarity} />
-            <SimpleTypography text={'Price : ' + fish.price + ' bells'} />
+            <SimpleTypography text={'Name : ' + bug.name['name-USen']} />
+            <SimpleTypography text={'Rarity : ' + bug.availability.rarity} />
+            <SimpleTypography text={'Price : ' + bug.price + ' bells'} />
           </View>
           <View style={styles.animalImageContainer}>
             <Image
               style={styles.animalImage}
               source={{
-                uri: fish.icon_uri,
+                uri: bug.icon_uri,
               }}
             />
           </View>

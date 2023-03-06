@@ -1,15 +1,24 @@
-import {View, StyleSheet, Alert, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import {Header} from '../header/Header';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import type {Bug, Fish} from './Types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
+import {BugListScrollView} from './components/BugListScrollView';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {FetchFishes} from './functions/FetchFishes';
 import {FetchBugs} from './functions/FetchBugs';
 import {isNotEmpty} from './functions/isNotEmpty';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
+
+const Tab = createMaterialTopTabNavigator<TabStackParamList>();
+
+export type TabStackParamList = {
+  Fish: {fishList: Fish[]};
+  Bug: {bugList: Bug[]};
+};
 
 export const Encyclopedie = () => {
   const [fishList, setFishList] = useState<Array<Fish>>([]);
@@ -33,7 +42,18 @@ export const Encyclopedie = () => {
           headerImagePath={HEADER_IMAGE_PATH}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
-        <FishListScrollView fishList={fishList} />
+        <Tab.Navigator backBehavior="none">
+          <Tab.Screen
+            name="Fish"
+            component={FishListScrollView}
+            initialParams={{fishList}}
+          />
+          <Tab.Screen
+            name="Bug"
+            component={BugListScrollView}
+            initialParams={{bugList}}
+          />
+        </Tab.Navigator>
       </View>
     );
   } else {
@@ -49,7 +69,7 @@ export const Encyclopedie = () => {
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
         <View style={styles.loaderPage}>
-        <ActivityIndicator />
+          <ActivityIndicator />
         </View>
       </View>
     );
