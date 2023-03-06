@@ -8,15 +8,15 @@ export function FishListScrollView({fishList}: FishViewProps) {
   return (
     <ScrollView>
       {fishList.map(fish => (
-        <View style={styles.fishCard}>
-          <View style={styles.fishID}>
+        <View style={styles.animalCard}>
+          <View style={styles.animalID}>
             <SimpleTypography text={'Name : ' + fish.name['name-USen']} />
             <SimpleTypography text={'Rarity : ' + fish.availability.rarity} />
             <SimpleTypography text={'Price : ' + fish.price + ' bells'} />
           </View>
-          <View style={styles.fishImageContainer}>
+          <View style={styles.animalImageContainer}>
             <Image
-              style={styles.fishImage}
+              style={styles.animalImage}
               source={{
                 uri: fish.icon_uri,
               }}
