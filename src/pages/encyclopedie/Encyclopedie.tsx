@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import type {Fish, Fishes} from './Types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
-import {useNavigation} from '@react-navigation/native';
+import {FetchFishes} from './functions/FetchFishes';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
@@ -12,30 +12,10 @@ const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
 export const Encyclopedie = () => {
   const [fishList, setFishList] = useState<Array<Fish>>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const navigation = useNavigation();
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
-    fetch('https://acnhapi.com/v1/fish', {
-      method: 'GET',
-    })
-      .then((response: Response) => response.json())
-      .then((responseJSON: Fishes) => {
-        setFishList(Object.values(responseJSON));
-        setIsLoaded(true);
-      })
-      .catch((error: Error) => {
-        console.error('No response : ' + error.message);
-        Alert.alert('Error', 'Impossible to fetch data. Please try again.', [
-          {
-            text: 'Ok',
-            onPress: () => {
-              navigation.navigate('Home');
-            },
-            style: 'cancel',
-          },
-        ]);
-      });
+    FetchFishes(setFishList);
   }, []);
 
   if (isLoaded) {
