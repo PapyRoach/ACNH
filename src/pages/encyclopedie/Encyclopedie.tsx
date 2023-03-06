@@ -6,6 +6,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
 import {FetchFishes} from './functions/FetchFishes';
 import {FetchBugs} from './functions/FetchBugs';
+import {isNotEmpty} from './functions/isNotEmpty';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
@@ -13,7 +14,6 @@ const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
 export const Encyclopedie = () => {
   const [fishList, setFishList] = useState<Array<Fish>>([]);
   const [bugList, setBugList] = useState<Array<Bug>>([]);
-  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const insets = useSafeAreaInsets();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Encyclopedie = () => {
     FetchBugs(setBugList);
   }, []);
 
-  if (isLoaded) {
+  if (isNotEmpty(fishList) && isNotEmpty(bugList)) {
     return (
       <View
         style={{
