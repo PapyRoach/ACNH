@@ -48,7 +48,9 @@ export const Encyclopedie = () => {
           headerImagePath={HEADER_IMAGE_PATH}
           headerText={HEADER_ENCYCLOPEDIA_TEXT}
         />
+        <View style={styles.loaderPage}>
         <ActivityIndicator />
+        </View>
       </View>
     );
   }
@@ -79,5 +81,10 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80,
     margin: 5,
+  },
+  loaderPage: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
