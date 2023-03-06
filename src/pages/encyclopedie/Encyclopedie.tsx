@@ -72,7 +72,7 @@ export const Encyclopedie = () => {
 };
 
 export const styles = StyleSheet.create({
-  fishCard: {
+  animalCard: {
     width: '90%',
     alignSelf: 'center',
     backgroundColor: '#FAEDCD',
@@ -84,15 +84,15 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  fishID: {
+  animalID: {
     flex: 1,
     justifyContent: 'space-evenly',
   },
-  fishImage: {
+  animalImage: {
     width: '100%',
     height: '100%',
   },
-  fishImageContainer: {
+  animalImageContainer: {
     width: 80,
     height: 80,
     margin: 5,
