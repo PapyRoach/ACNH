@@ -1,4 +1,4 @@
-import {View, ScrollView, Image} from 'react-native';
+import {View, Image, FlatList} from 'react-native';
 import React from 'react';
 import type {Bug} from '../Types';
 import {SimpleTypography} from '../../../theme/typography/Typography';
@@ -14,24 +14,28 @@ type BugProps = {
 export function BugListScrollView({route}: BugProps) {
   const bugList: Bug[] = route.params.bugList;
   return (
-    <ScrollView>
-      {bugList.map(bug => (
+    <FlatList
+      horizontal={false}
+      data={bugList}
+      renderItem={bug => (
         <View style={styles.animalCard}>
           <View style={styles.animalID}>
-            <SimpleTypography text={'Name : ' + bug.name['name-USen']} />
-            <SimpleTypography text={'Rarity : ' + bug.availability.rarity} />
-            <SimpleTypography text={'Price : ' + bug.price + ' bells'} />
+            <SimpleTypography text={'Name : ' + bug.item.name['name-USen']} />
+            <SimpleTypography
+              text={'Rarity : ' + bug.item.availability.rarity}
+            />
+            <SimpleTypography text={'Price : ' + bug.item.price + ' bells'} />
           </View>
           <View style={styles.animalImageContainer}>
             <Image
               style={styles.animalImage}
               source={{
-                uri: bug.icon_uri,
+                uri: bug.item.icon_uri,
               }}
             />
           </View>
         </View>
-      ))}
-    </ScrollView>
+      )}
+    />
   );
 }
