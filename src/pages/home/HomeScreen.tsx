@@ -1,4 +1,4 @@
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList, ScrollView} from 'react-native';
 import React from 'react';
 import {Header} from '../header/Header';
 import {HomeButton} from './components/HomeButton';
@@ -27,18 +27,13 @@ export const HomeScreen = () => {
         headerText={HEADER_HOME_TEXT}
       />
       <View style={styles.listWrapper}>
-        <FlatList
-          horizontal={false}
-          numColumns={NUMBER_OF_COLUMNS}
-          data={HOME_SCREEN_BUTTONS_DATASET}
-          renderItem={button => (
-            <HomeButton
-              label={button.item.label}
-              imagePath={button.item.imagePath}
-              navigationTarget={button.item.navigationTarget}
-            />
-          )}
-        />
+        {HOME_SCREEN_BUTTONS_DATASET.map(button => (
+          <HomeButton
+            label={button.label}
+            imagePath={button.imagePath}
+            navigationTarget={button.navigationTarget}
+          />
+        ))}
       </View>
     </View>
   );
@@ -50,5 +45,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
     width: `${GRID_WIDTH_RATIO * 100}%`,
     maxWidth: MAX_GRID_WIDTH,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });
