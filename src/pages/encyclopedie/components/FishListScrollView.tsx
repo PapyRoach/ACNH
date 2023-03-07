@@ -1,4 +1,4 @@
-import {View, ScrollView, Image} from 'react-native';
+import {View, Image, FlatList} from 'react-native';
 import React from 'react';
 import type {Fish} from '../Types';
 import {SimpleTypography} from '../../../theme/typography/Typography';
@@ -14,24 +14,28 @@ type FishProps = {
 export function FishListScrollView({route}: FishProps) {
   const fishList: Fish[] = route.params.fishList;
   return (
-    <ScrollView>
-      {fishList.map(fish => (
+    <FlatList
+      horizontal={false}
+      data={fishList}
+      renderItem={fish => (
         <View style={styles.animalCard}>
           <View style={styles.animalID}>
-            <SimpleTypography text={'Name : ' + fish.name['name-USen']} />
-            <SimpleTypography text={'Rarity : ' + fish.availability.rarity} />
-            <SimpleTypography text={'Price : ' + fish.price + ' bells'} />
+            <SimpleTypography text={'Name : ' + fish.item.name['name-USen']} />
+            <SimpleTypography
+              text={'Rarity : ' + fish.item.availability.rarity}
+            />
+            <SimpleTypography text={'Price : ' + fish.item.price + ' bells'} />
           </View>
           <View style={styles.animalImageContainer}>
             <Image
               style={styles.animalImage}
               source={{
-                uri: fish.icon_uri,
+                uri: fish.item.icon_uri,
               }}
             />
           </View>
         </View>
-      ))}
-    </ScrollView>
+      )}
+    />
   );
 }
