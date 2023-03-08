@@ -1,14 +1,13 @@
 import {View, StyleSheet, Image, ImageSourcePropType} from 'react-native';
 import {Header} from '../header/Header';
-import {useEffect, useState} from 'react';
 import type {Bug, Fish} from './Types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {FishListScrollView} from './components/FishListScrollView';
 import {BugListScrollView} from './components/BugListScrollView';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {FetchFishes} from './functions/FetchFishes';
-import {FetchBugs} from './functions/FetchBugs';
-import {isNotEmpty} from './functions/isNotEmpty';
+import {FetchFishes} from '../common/functions/FetchFishes';
+import {FetchBugs} from '../common/functions/FetchBugs';
+import {useQuery} from 'react-query';
 import {LoadingPage} from '../common/components/LoadingPage';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
@@ -25,16 +24,13 @@ export type TabStackParamList = {
 };
 
 export const Encyclopedie = () => {
-  const [fishList, setFishList] = useState<Array<Fish>>([]);
-  const [bugList, setBugList] = useState<Array<Bug>>([]);
   const insets = useSafeAreaInsets();
+  const queryFish = useQuery('fishList', FetchFishes);
+  const queryBugs = useQuery('bugList', FetchBugs);
 
-  useEffect(() => {
-    FetchFishes(setFishList);
-    FetchBugs(setBugList);
-  }, []);
-
-  if (isNotEmpty(fishList) && isNotEmpty(bugList)) {
+  if (!queryFish.isLoading && !queryBugs.isLoading) {
+    const fishList = queryFish.data;
+    const bugList = queryBugs.data;
     return (
       <View
         style={{
