@@ -1,10 +1,4 @@
-import {
-  View,
-  StyleSheet,
-  ActivityIndicator,
-  Image,
-  ImageSourcePropType,
-} from 'react-native';
+import {View, StyleSheet, Image, ImageSourcePropType} from 'react-native';
 import {Header} from '../header/Header';
 import {useEffect, useState} from 'react';
 import type {Bug, Fish} from './Types';
@@ -15,6 +9,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import {FetchFishes} from './functions/FetchFishes';
 import {FetchBugs} from './functions/FetchBugs';
 import {isNotEmpty} from './functions/isNotEmpty';
+import {LoadingPage} from '../common/components/LoadingPage';
 
 const HEADER_ENCYCLOPEDIA_TEXT = 'Encyclopédie';
 const HEADER_IMAGE_PATH = require('../header/img/header_background.jpg');
@@ -71,20 +66,7 @@ export const Encyclopedie = () => {
     );
   } else {
     return (
-      <View
-        style={{
-          paddingTop: insets.top,
-          paddingBottom: insets.bottom,
-          flex: 1,
-        }}>
-        <Header
-          headerImagePath={HEADER_IMAGE_PATH}
-          headerText={HEADER_ENCYCLOPEDIA_TEXT}
-        />
-        <View style={styles.loaderPage}>
-          <ActivityIndicator />
-        </View>
-      </View>
+      <LoadingPage image={HEADER_IMAGE_PATH} text={HEADER_ENCYCLOPEDIA_TEXT} />
     );
   }
 };
@@ -163,10 +145,5 @@ export const styles = StyleSheet.create({
     width: 80,
     height: 80,
     margin: 5,
-  },
-  loaderPage: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
