@@ -1,9 +1,11 @@
-import {View, Image, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import React from 'react';
 import type {Fish} from '../Types';
-import {SimpleTypography} from '../../../theme/typography/Typography';
-import {styles, TabStackParamList} from '../Encyclopedie';
+import {TabStackParamList} from '../Encyclopedie';
 import {RouteProp} from '@react-navigation/native';
+import {ExpandableView} from '../../common/components/ExpandableView';
+import {BottomViewFish} from './BottomViewFish';
+import {TopViewAnimal} from './TopViewAnimal';
 
 type FishListRouteProp = RouteProp<TabStackParamList, 'Fish'>;
 
@@ -18,23 +20,24 @@ export function FishListScrollView({route}: FishProps) {
       horizontal={false}
       data={fishList}
       renderItem={fish => (
-        <View style={styles.animalCard}>
-          <View style={styles.animalID}>
-            <SimpleTypography text={'Name : ' + fish.item.name['name-USen']} />
-            <SimpleTypography
-              text={'Rarity : ' + fish.item.availability.rarity}
+        <ExpandableView
+          topView={
+            <TopViewAnimal
+              name={fish.item.name['name-EUfr']}
+              rarity={fish.item.availability.rarity}
+              price={fish.item.price}
+              icon={fish.item.icon_uri}
             />
-            <SimpleTypography text={'Price : ' + fish.item.price + ' bells'} />
-          </View>
-          <View style={styles.animalImageContainer}>
-            <Image
-              style={styles.animalImage}
-              source={{
-                uri: fish.item.icon_uri,
-              }}
+          }
+          expandView={
+            <BottomViewFish
+              months={fish.item.availability['month-northern']}
+              hours={fish.item.availability.time}
+              location={fish.item.availability.location}
+              shadow={fish.item.shadow}
             />
-          </View>
-        </View>
+          }
+        />
       )}
     />
   );
