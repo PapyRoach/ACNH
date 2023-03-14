@@ -1,4 +1,4 @@
-import {View, StyleSheet, Image, ImageSourcePropType} from 'react-native';
+import {View, Image, ImageSourcePropType} from 'react-native';
 import {Header} from '../header/Header';
 import type {Bug, Fish} from './Types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -115,31 +115,3 @@ const iconOptions = (icon: ImageSourcePropType) => {
     },
   };
 };
-
-export const styles = StyleSheet.create({
-  animalCard: {
-    width: '90%',
-    alignSelf: 'center',
-    backgroundColor: '#FAEDCD',
-    borderColor: '#D4A373',
-    borderRadius: 10,
-    borderWidth: 3,
-    margin: 5,
-    padding: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  animalID: {
-    flex: 1,
-    justifyContent: 'space-evenly',
-  },
-  animalImage: {
-    width: '100%',
-    height: '100%',
-  },
-  animalImageContainer: {
-    width: 80,
-    height: 80,
-    margin: 5,
-  },
-});
