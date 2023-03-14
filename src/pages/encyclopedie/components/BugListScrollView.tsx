@@ -1,9 +1,11 @@
-import {View, Image, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import React from 'react';
 import type {Bug} from '../Types';
-import {SimpleTypography} from '../../../theme/typography/Typography';
-import {styles, TabStackParamList} from '../Encyclopedie';
+import {TabStackParamList} from '../Encyclopedie';
 import {RouteProp} from '@react-navigation/native';
+import {ExpandableView} from '../../common/components/ExpandableView';
+import {TopViewAnimal} from './TopViewAnimal';
+import {BottomViewBugs} from './BottomViewBugs';
 
 type BugListRouteProp = RouteProp<TabStackParamList, 'Bug'>;
 
@@ -18,23 +20,23 @@ export function BugListScrollView({route}: BugProps) {
       horizontal={false}
       data={bugList}
       renderItem={bug => (
-        <View style={styles.animalCard}>
-          <View style={styles.animalID}>
-            <SimpleTypography text={'Name : ' + bug.item.name['name-USen']} />
-            <SimpleTypography
-              text={'Rarity : ' + bug.item.availability.rarity}
+        <ExpandableView
+          topView={
+            <TopViewAnimal
+              name={bug.item.name['name-EUfr']}
+              rarity={bug.item.availability.rarity}
+              price={bug.item.price}
+              icon={bug.item.icon_uri}
             />
-            <SimpleTypography text={'Price : ' + bug.item.price + ' bells'} />
-          </View>
-          <View style={styles.animalImageContainer}>
-            <Image
-              style={styles.animalImage}
-              source={{
-                uri: bug.item.icon_uri,
-              }}
+          }
+          expandView={
+            <BottomViewBugs
+              months={bug.item.availability['month-northern']}
+              hours={bug.item.availability.time}
+              location={bug.item.availability.location}
             />
-          </View>
-        </View>
+          }
+        />
       )}
     />
   );
